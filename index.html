@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Interior Design Website</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.3/css/bootstrap.min.css">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+  --orange:#ff7a00;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Exo 2', sans-serif;
+  transition:.2s linear;
+  text-transform:capitalize;
+}
+
+html{
+  font-size:62.5%;
+  scroll-behavior:smooth;
+}
+
+body{
+  overflow-x:hidden;
+  background:#fff;
+}
+
+/* HEADER */
+
+.header{
+  width:100%;
+  height:8rem;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5rem;
+  position:fixed;
+  top:0;
+  left:0;
+  z-index:1000;
+  box-shadow:0 .2rem .5rem rgba(0,0,0,.1);
+}
+
+.logo{
+  display:flex;
+  align-items:center;
+  text-decoration:none;
+}
+
+.logo i{
+  font-size:3rem;
+  color:var(--orange);
+  margin-right:1rem;
+}
+
+.logo span{
+  font-size:3rem;
+  color:var(--orange);
+  font-weight:600;
+}
+
+.header nav ul{
+  display:flex;
+  list-style:none;
+}
+
+.header nav ul li{
+  margin-left:4rem;
+}
+
+.header nav ul li a{
+  text-decoration:none;
+  font-size:2rem;
+  color:#333;
+  font-weight:500;
+}
+
+.header nav ul li a:hover{
+  color:var(--orange);
+}
+
+.fa-bars{
+  font-size:3rem;
+  color:#333;
+  cursor:pointer;
+  display:none;
+}
+
+/* HOME */
+
+.home .hero{
+  min-height:100vh;
+  background:url('https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop') no-repeat center/cover;
+  display:flex;
+  align-items:center;
+  padding-left:10rem;
+}
+
+.text1{
+  font-size:7rem;
+  background:#fff;
+  width:55rem;
+  padding:1.5rem;
+}
+
+.text2{
+  font-size:3rem;
+  background:var(--orange);
+  color:#fff;
+  width:40rem;
+  padding:1rem;
+  margin-top:1rem;
+}
+
+/* COUNTING */
+
+.counting{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  padding:6rem 0;
+  background:#fff;
+}
+
+.counting .count-box{
+  margin:2rem 4rem;
+  text-align:center;
+}
+
+.count{
+  font-size:5rem;
+  color:#333;
+}
+
+.counting h3{
+  font-size:2rem;
+  color:var(--orange);
+}
+
+/* HEADING */
+
+.heading{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap;
+  font-size:5rem;
+  color:#333;
+  margin:5rem 0;
+  font-weight:600;
+}
+
+.project .heading{
+  color:#fff;
+}
+
+.heading span{
+  position:relative;
+  margin:0 .4rem;
+}
+
+.heading span:not(:last-child)::after{
+  content:'';
+  position:absolute;
+  top:50%;
+  right:-1rem;
+  transform:translateY(-50%);
+  width:1.3rem;
+  height:.3rem;
+  background:var(--orange);
+}
+
+/* ABOUT */
+
+.about{
+  padding:5rem 0;
+}
+
+.about img{
+  width:100%;
+  border-radius:1rem;
+  box-shadow:2rem 2rem 0 var(--orange);
+}
+
+.about .info{
+  padding:2rem;
+}
+
+.about .info h2{
+  font-size:3.5rem;
+  color:var(--orange);
+}
+
+.about .info p{
+  font-size:1.6rem;
+  color:#555;
+  margin:2rem 0;
+  line-height:2.7rem;
+}
+
+.icons a{
+  width:4rem;
+  height:4rem;
+  line-height:4rem;
+  text-align:center;
+  background:#333;
+  color:#fff;
+  border-radius:.5rem;
+  text-decoration:none;
+  font-size:1.8rem;
+  margin-right:1rem;
+}
+
+.icons a:hover{
+  background:var(--orange);
+}
+
+/* SERVICES */
+
+.service{
+  background:#f5f5f5;
+  padding:5rem 0;
+}
+
+/* PROJECT */
+
+.project{
+  background:#333;
+  padding:5rem 0;
+}
+
+/* GRID */
+
+.box-container{
+  width:100%;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:3rem;
+  padding:2rem 5rem;
+}
+
+/* SERVICE BOX */
+
+.service .box{
+  width:100%;
+  height:28rem;
+  background:#fff;
+  border-left:.4rem solid var(--orange);
+  border-right:.4rem solid var(--orange);
+  border-radius:1rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:2rem;
+  box-shadow:0 .2rem .8rem rgba(0,0,0,.1);
+}
+
+.service .box:hover{
+  transform:translateY(-10px);
+}
+
+.service .box i{
+  font-size:5rem;
+  color:var(--orange);
+  margin-bottom:2rem;
+}
+
+.service .box h3{
+  font-size:2.5rem;
+  color:#333;
+  margin-bottom:1rem;
+}
+
+.service .box p{
+  font-size:1.5rem;
+  color:#666;
+  line-height:2.5rem;
+}
+
+/* PROJECT BOX */
+
+.project .box{
+  width:100%;
+  height:28rem;
+  overflow:hidden;
+  border-radius:1rem;
+  box-shadow:0 .2rem .8rem rgba(0,0,0,.3);
+}
+
+.project .box img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.project .box:hover img{
+  transform:scale(1.1);
+}
+
+/* CONTACT */
+
+.contact{
+  padding:5rem 0;
+  background:#f5f5f5;
+}
+
+.contact-box-container{
+  width:100%;
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:2rem;
+  margin-bottom:4rem;
+}
+
+.contact-box{
+  width:20rem;
+  height:12rem;
+  background:#fff;
+  border-radius:1rem;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  box-shadow:0 .2rem .8rem rgba(0,0,0,.1);
+}
+
+.contact-box i{
+  font-size:3rem;
+  color:var(--orange);
+  margin-bottom:1rem;
+}
+
+.contact-box h3{
+  font-size:1.5rem;
+  color:#333;
+}
+
+/* FORM */
+
+.form-container{
+  width:90%;
+  margin:auto;
+}
+
+.inputBox{
+  display:flex;
+  gap:1rem;
+  margin-bottom:1.5rem;
+}
+
+.form-container input,
+.form-container textarea{
+  width:100%;
+  padding:1.8rem;
+  border:none;
+  outline:none;
+  background:#fff;
+  font-size:1.5rem;
+  box-shadow:0 .2rem .5rem rgba(0,0,0,.08);
+}
+
+.form-container textarea{
+  height:20rem;
+  resize:none;
+  margin-bottom:2rem;
+}
+
+.btn{
+  width:15rem;
+  height:5rem;
+  border:none;
+  background:var(--orange);
+  color:#fff;
+  font-size:1.7rem;
+  cursor:pointer;
+}
+
+.btn:hover{
+  background:#e66d00;
+}
+
+/* FOOTER */
+
+.footer{
+  background:#222;
+  color:#fff;
+  padding:4rem 2rem;
+  text-align:center;
+}
+
+.credit{
+  font-size:1.8rem;
+}
+
+.credit span{
+  color:var(--orange);
+}
+
+/* MOBILE */
+
+@media(max-width:991px){
+
+  .box-container{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+}
+
+@media(max-width:768px){
+
+  html{
+    font-size:55%;
+  }
+
+  .fa-bars{
+    display:block;
+  }
+
+  .header nav{
+    position:fixed;
+    top:8rem;
+    right:-100%;
+    width:30rem;
+    height:100vh;
+    background:#fff;
+  }
+
+  .header nav ul{
+    flex-direction:column;
+    padding-top:5rem;
+  }
+
+  .header nav ul li{
+    margin:2rem;
+  }
+
+  .nav-toggle{
+    right:0;
+  }
+
+  .box-container{
+    grid-template-columns:1fr;
+    padding:2rem;
+  }
+
+  .text1{
+    width:100%;
+    font-size:4rem;
+  }
+
+  .text2{
+    width:80%;
+  }
+
+  .inputBox{
+    flex-direction:column;
+  }
+
+}
+
+</style>
+<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header class="header">
+
+<a href="#" class="logo">
+<i class="fas fa-home"></i>
+<span>Decore</span>
+</a>
+
+<nav>
+<ul>
+<li><a href="#home">home</a></li>
+<li><a href="#about">about</a></li>
+<li><a href="#service">service</a></li>
+<li><a href="#project">project</a></li>
+<li><a href="#contact">contact</a></li>
+</ul>
+</nav>
+
+<div class="fas fa-bars"></div>
+
+</header>
+
+<!-- HOME -->
+
+<section id="home" class="home">
+
+<div class="hero">
+
+<div>
+<h1 class="text1" data-aos="fade-up"
+     data-aos-duration="2000">Interior Design</h1>
+<h3 class="text2"data-aos="fade-up"
+     data-aos-duration="2000">Architecture Services</h3>
+</div>
+
+</div>
+
+<div class="counting">
+
+<div class="count-box">
+<h1 class="count">1200+</h1>
+<h3>working hours</h3>
+</div>
+
+<div class="count-box">
+<h1 class="count">15+</h1>
+<h3>awards</h3>
+</div>
+
+<div class="count-box">
+<h1 class="count">1000+</h1>
+<h3>clients</h3>
+</div>
+
+<div class="count-box">
+<h1 class="count">840+</h1>
+<h3>projects</h3>
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section id="about" class="about container">
+
+<h1 class="heading">
+<span>A</span>
+<span>B</span>
+<span>O</span>
+<span>U</span>
+<span>T</span>
+<span>U</span>
+<span>S</span>
+</h1>
+
+<div class="row align-items-center">
+
+<div class="col-md-6"data-aos="flip-left"
+     data-aos-easing="ease-out-cubic"
+     data-aos-duration="2000">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="col-md-6 info">
+
+<h2>Best Interior Design</h2>
+
+<p>
+We create modern and beautiful interiors for homes and offices.
+Professional architecture and interior design services with modern creativity.
+</p>
+
+<div class="icons">
+<a href="#" class="fab fa-facebook-f"></a>
+<a href="#" class="fab fa-twitter"></a>
+<a href="#" class="fab fa-instagram"></a>
+<a href="#" class="fab fa-pinterest"></a>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section id="service" class="service"data-aos="fade-up"
+     data-aos-duration="2000">
+
+<h1 class="heading"data-aos="fade-right"
+     data-aos-offset="300"
+     data-aos-easing="ease-in-sine">
+<span>O</span>
+<span>U</span>
+<span>R</span>
+<span>S</span>
+<span>E</span>
+<span>R</span>
+<span>V</span>
+<span>I</span>
+<span>C</span>
+<span>E</span>
+<span>S</span>
+</h1>
+
+<div class="box-container">
+
+<div class="box">
+<i class="fas fa-palette"></i>
+<h3>Interior Design</h3>
+<p>Creative and modern interior designs for stylish living spaces.</p>
+</div>
+
+<div class="box">
+<i class="fas fa-tools"></i>
+<h3>Renovation</h3>
+<p>Professional home renovation and remodeling solutions.</p>
+</div>
+
+<div class="box">
+<i class="fas fa-house-user"></i>
+<h3>Architecture</h3>
+<p>Luxury architecture planning with modern creativity.</p>
+</div>
+
+<div class="box">
+<i class="fas fa-couch"></i>
+<h3>Furniture</h3>
+<p>Beautiful furniture selection for elegant interiors.</p>
+</div>
+
+<div class="box">
+<i class="fas fa-bed"></i>
+<h3>Bedroom Design</h3>
+<p>Comfortable and aesthetic bedroom interior concepts.</p>
+</div>
+
+<div class="box">
+<i class="fas fa-bath"></i>
+<h3>Bathroom Design</h3>
+<p>Modern bathroom styling with luxury finishing touches.</p>
+</div>
+
+</div>
+
+</section>
+
+<!-- PROJECT -->
+
+<section id="project" class="project"data-aos="fade-up"
+     data-aos-duration="3000">
+
+<h1 class="heading">
+<span>O</span>
+<span>U</span>
+<span>R</span>
+<span>P</span>
+<span>R</span>
+<span>O</span>
+<span>J</span>
+<span>E</span>
+<span>C</span>
+<span>T</span>
+<span>S</span>
+</h1>
+
+<div class="box-container">
+
+<div class="box">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="box">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="box">
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="box">
+<img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop">
+</div>
+
+<div class="box">
+<img src="https://images.unsplash.com/photo-1494526585095-c41746248156?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+<div class="box">
+<img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop">
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section id="contact" class="contact">
+
+<h1 class="heading">
+<span>C</span>
+<span>O</span>
+<span>N</span>
+<span>T</span>
+<span>A</span>
+<span>C</span>
+<span>T</span>
+<span>U</span>
+<span>S</span>
+</h1>
+
+<div class="contact-box-container">
+
+<div class="contact-box">
+<i class="fas fa-map-marker-alt"data-aos="fade-up"
+     data-aos-duration="3000"></i>
+<h3 class="text 1"data-aos="fade-up"
+     data-aos-duration="3000">Mumbai, India</h3>
+</div>
+
+<div class="contact-box">
+<i class="fas fa-envelope"data-aos="fade-up"
+     data-aos-duration="3000"></i>
+<h3 class="text 3"data-aos="fade-up"
+     data-aos-duration="3000">design@gmail.com</h3>
+</div>
+
+<div class="contact-box">
+<i class="fas fa-phone"data-aos="fade-up"
+     data-aos-duration="3000"></i>
+<h3 class="text 2" data-aos="fade-up"
+     data-aos-duration="3000">+91 9876543210</h3>
+</div>
+
+</div>
+
+<div class="form-container">
+
+<form>
+
+<div class="inputBox">
+<input type="text" placeholder="First Name">
+<input type="text" placeholder="Last Name">
+</div>
+
+<input type="email" placeholder="Email">
+
+<textarea placeholder="Message"></textarea>
+
+<button type="submit" class="btn">Send</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- FOOTER -->
+
+<section class="footer">
+
+<h1 class="credit">
+created by <span> SANJU POKHRELS</span> | all rights reserved
+</h1>
+
+</section>
+
+<!-- JQUERY -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+$('.fa-bars').click(function(){
+
+$(this).toggleClass('fa-times');
+$('nav').toggleClass('nav-toggle');
+
+});
+
+});
+
+</script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+</body>
+</html>
